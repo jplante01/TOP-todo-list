@@ -24,4 +24,16 @@
   justify-content: center;
 }
 
+body {
+  background-color: var(--secondary-dark);
+}
+.header {
+  background-color: var(--primary-contrast);
+  width: 100%;
+}
 
+#logo {
+  color: var(--primary-light); 
+  font-size: 30px;
+  margin: 20px 40px;
+}
