@@ -25,10 +25,10 @@
 }
 
 body {
-  background-color: var(--secondary-dark);
+  background-color: var(--primary-dark);
 }
 .header {
-  background-color: var(--primary-contrast);
+  background-color: var(--secondary-contrast);
   width: 100%;
 }
 
@@ -36,4 +36,5 @@ body {
   color: var(--primary-light); 
   font-size: 30px;
   margin: 20px 40px;
+  font-family: 'Climate Crisis', cursive;
 }
