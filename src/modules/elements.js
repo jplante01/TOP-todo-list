@@ -26,12 +26,12 @@ const elements = (() => {
     addProjectButton.id = 'add-project-button';
     addProjectButton.textContent = '+';
     navHeader.appendChild(addProjectButton);
-    const projectsList = document.createElement('div');
+    const projectsList = document.createElement('ul');
     projectsList.classList = 'projects-list f-col';
     nav.appendChild(projectsList);
     /* REMOVE */
     for (let i = 0; i < 5; i++) {
-      const project = document.createElement('ul');
+      const project = document.createElement('li');
       project.textContent = 'test';
       projectsList.appendChild(project);
     }
