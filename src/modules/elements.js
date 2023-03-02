@@ -1,7 +1,7 @@
 const elements = (() => {
   function createHeader() {
     const header = document.createElement('header');
-    header.classList = 'header';
+    header.id = 'header';
     const logo = document.createElement('div');
     logo.id = 'logo';
     logo.textContent = 'ToDo';
@@ -11,7 +11,8 @@ const elements = (() => {
 
   function createSidebar() {
     const sidebar = document.createElement('div');
-    sidebar.classList = 'sidebar f-col';
+    sidebar.id = 'sidebar'
+    sidebar.classList = 'f-col';
     const nav = document.createElement('div');
     nav.classList = 'nav';
     sidebar.appendChild(nav);
@@ -29,16 +30,15 @@ const elements = (() => {
     const projectsList = document.createElement('ul');
     projectsList.classList = 'projects-list f-col';
     nav.appendChild(projectsList);
-    /* REMOVE */
-    for (let i = 0; i < 5; i++) {
-      const project = document.createElement('li');
-      project.textContent = 'test';
-      projectsList.appendChild(project);
-    }
-    /* REMOVE */
     return sidebar;
   }
-  return { createHeader, createSidebar };
+
+  function createMain() {
+    const main = document.createElement('div');
+    main.id = 'main';
+    return main;
+  }
+  return { createHeader, createSidebar, createMain };
 })();
 
 export default elements;

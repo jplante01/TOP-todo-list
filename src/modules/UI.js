@@ -5,6 +5,7 @@ const UI = (() => {
     const content = document.getElementById('content');
     content.appendChild(elements.createHeader());
     content.appendChild(elements.createSidebar());
+    content.appendChild(elements.createMain());
   };
 
   return {
