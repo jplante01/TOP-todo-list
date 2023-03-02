@@ -9,7 +9,36 @@ const elements = (() => {
     return header;
   }
 
-  return { createHeader };
+  function createSidebar() {
+    const sidebar = document.createElement('div');
+    sidebar.classList = 'sidebar f-col';
+    const nav = document.createElement('div');
+    nav.classList = 'nav';
+    sidebar.appendChild(nav);
+    const navHeader = document.createElement('div');
+    navHeader.classList = 'nav-header f-center';
+    nav.appendChild(navHeader);
+    const projectsButton = document.createElement('h1');
+    projectsButton.textContent = 'Projects';
+    projectsButton.id = 'projects-button';
+    navHeader.appendChild(projectsButton);
+    const addProjectButton = document.createElement('a');
+    addProjectButton.id = 'add-project-button';
+    addProjectButton.textContent = '+';
+    navHeader.appendChild(addProjectButton);
+    const projectsList = document.createElement('div');
+    projectsList.classList = 'projects-list f-col';
+    nav.appendChild(projectsList);
+    /* REMOVE */
+    for (let i = 0; i < 5; i++) {
+      const project = document.createElement('ul');
+      project.textContent = 'test';
+      projectsList.appendChild(project);
+    }
+    /* REMOVE */
+    return sidebar;
+  }
+  return { createHeader, createSidebar };
 })();
 
 export default elements;
