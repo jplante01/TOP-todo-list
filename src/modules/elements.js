@@ -11,7 +11,7 @@ const elements = (() => {
 
   function createSidebar() {
     const sidebar = document.createElement('div');
-    sidebar.id = 'sidebar'
+    sidebar.id = 'sidebar';
     sidebar.classList = 'f-col';
     const nav = document.createElement('div');
     nav.classList = 'nav';
