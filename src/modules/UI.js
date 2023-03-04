@@ -10,6 +10,9 @@ const UI = (() => {
     content.appendChild(elements.createHeader());
     content.appendChild(elements.createSidebar());
     content.appendChild(elements.createMain());
+    const sidebar = document.getElementById('sidebar');
+    sidebar.appendChild(elements.createNewProjectForm());
+    sidebar.appendChild(elements.createProjectList());
   };
 
   const projects = [];
@@ -29,8 +32,8 @@ const UI = (() => {
   testProject.addTask(Task('Code a project'));
   const testTask = projects[0].getTasks()[0];
   testTask.addNote('Open the webpage'); // not a function
-  console.log(testTask.getNotes());
-  console.log(testProject);
+  // console.log(testTask.getNotes());
+  // console.log(testProject);
   /* TEST/DELETE */
   return {
     loadHomePage,

@@ -29,6 +29,11 @@ ul {
   align-items: center;
   justify-content: center;
 }
+
+.hide {
+  display: none;
+}
+
 body {
   background-color: var(--black);
   height: 100vh;
@@ -77,12 +82,16 @@ body {
   font-size: 50px;
 }
 
-.projects-list {
+#projects-list {
   margin-left: 30px;
 }
 
-.projects-list > li {
+#projects-list > li {
   font-size: 24px;
 }
 
-
+#new-project-form-container {
+  border: medium dashed var(--secondary-contrast);
+  padding: 50px;
+  margin: 5px;
+}
