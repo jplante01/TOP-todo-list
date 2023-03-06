@@ -2,43 +2,60 @@ import elements from './elements';
 import Project from './Project';
 import Task from './Task';
 import Note from './Note';
-// import DOM from './Dom';
+import DOM from './Dom';
+import events from './events';
 
 const UI = (() => {
-  const loadHomePage = () => {
-    const content = document.getElementById('content');
+  const content = document.getElementById('content');
+  // target nodes are created in loadHomePage();
+  let sidebar;
+  let newProjectForm;
+  let projectsList;
+
+  function loadHomePage() {
     content.appendChild(elements.createHeader());
     content.appendChild(elements.createSidebar());
     content.appendChild(elements.createMain());
-    const sidebar = document.getElementById('sidebar');
+    sidebar = document.getElementById('sidebar');
     sidebar.appendChild(elements.createNewProjectForm());
-    sidebar.appendChild(elements.createProjectList());
-  };
+    newProjectForm = document.getElementById('new-project-form');
+    sidebar.appendChild(elements.createProjectsList());
+    projectsList = document.getElementById('projects-list');
+  }
 
   const projects = [];
 
-  const addProject = (project) => {
+  function addProject(project) {
     projects.push(project);
-  };
+  }
 
   const deleteProject = (projectIdx) => {
     projects.splice(projectIdx, 1);
   };
 
-  /* TEST/DELETE project -> task -> note */
-  addProject(Project('Coding'));
-  const testProject = projects[0];
-  testProject.addTask(Task('Study T.O.P.'));
-  testProject.addTask(Task('Code a project'));
-  const testTask = projects[0].getTasks()[0];
-  testTask.addNote('Open the webpage'); // not a function
-  // console.log(testTask.getNotes());
-  // console.log(testProject);
-  /* TEST/DELETE */
+  /* TESTING */
+  addProject(Project('coding', new Date(2023, 3, 10)));
+  addProject(Project('working out'));
+  /* TESTING */
+
+  function loadProjects() {
+    projects.forEach((project) => {
+      DOM.appendNode(projectsList, (DOM.createProjectNode(project)));
+    });
+  }
+
+  function initialize() {
+    loadHomePage();
+    loadProjects();
+    events.loadEventListeners();
+  }
+
+
   return {
     loadHomePage,
     addProject,
     deleteProject,
+    initialize,
   };
 })();
 

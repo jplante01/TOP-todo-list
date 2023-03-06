@@ -96,10 +96,10 @@ const elements = (() => {
     return formContainer;
   }
 
-  function createProjectList() {
+  function createProjectsList() {
     const container = document.createElement('ul');
     container.classList = 'f-col';
-    container.id = 'project-list';
+    container.id = 'projects-list';
     return container;
   }
 
@@ -108,7 +108,7 @@ const elements = (() => {
     createSidebar,
     createMain,
     createNewProjectForm,
-    createProjectList,
+    createProjectsList,
   };
 })();
 
