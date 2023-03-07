@@ -11,6 +11,7 @@ const UI = (() => {
   let sidebar;
   let newProjectForm;
   let projectsList;
+  let main;
 
   function loadHomePage() {
     content.appendChild(elements.createHeader());
@@ -21,6 +22,8 @@ const UI = (() => {
     newProjectForm = document.getElementById('new-project-form');
     sidebar.appendChild(elements.createProjectsList());
     projectsList = document.getElementById('projects-list');
+    main = document.getElementById('main');
+    main.appendChild(elements.createProjectView());
   }
 
   const projects = [];

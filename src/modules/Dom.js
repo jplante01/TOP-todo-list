@@ -8,6 +8,11 @@ const Dom = (() => {
   function appendNode(element, node) {
     element.appendChild(node);
   }
+
+  function createProjectViewLi(project) {
+    const li = document.createElement('li');
+    
+  }
   return { createProjectNode, appendNode };
 })();
 

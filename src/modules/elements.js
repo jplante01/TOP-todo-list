@@ -103,12 +103,18 @@ const elements = (() => {
     return container;
   }
 
+  function createProjectView() {
+    const projectView = document.createElement('div');
+    projectView.id = 'project-view';
+    return projectView;
+  }
   return {
     createHeader,
     createSidebar,
     createMain,
     createNewProjectForm,
     createProjectsList,
+    createProjectView,
   };
 })();
 
