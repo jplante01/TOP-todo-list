@@ -12,6 +12,7 @@ const UI = (() => {
   let newProjectForm;
   let projectsList;
   let main;
+  let projectView;
 
   function loadHomePage() {
     content.appendChild(elements.createHeader());
@@ -24,6 +25,7 @@ const UI = (() => {
     projectsList = document.getElementById('projects-list');
     main = document.getElementById('main');
     main.appendChild(elements.createProjectView());
+    projectView = document.getElementById('project-view');
   }
 
   const projects = [];
@@ -42,17 +44,18 @@ const UI = (() => {
   /* TESTING */
 
   function loadProjects() {
-    projects.forEach((project) => {
-      DOM.appendNode(projectsList, (DOM.createProjectNode(project)));
+    projects.forEach((project, arrayIdx) => {
+      const newNode = DOM.createProjectNode(project, arrayIdx);
+      events.addProjectListListener(newNode);
+      DOM.appendNode(projectsList, newNode);
     });
   }
-
+  
   function initialize() {
     loadHomePage();
     loadProjects();
     events.loadEventListeners();
   }
-
 
   return {
     loadHomePage,
