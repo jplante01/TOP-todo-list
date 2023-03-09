@@ -1,3 +1,5 @@
+import elements from './elements';
+
 const Dom = (() => {
   function createProjectNode(project, arrayIdx) {
     const entry = document.createElement('li');
@@ -18,12 +20,31 @@ const Dom = (() => {
   }
 
   function populateProjectView(project) {
+    console.log(project);
     const projectView = document.getElementById('project-view');
-    const newNode = createProjectViewEntry(project);
-    appendNode(projectView, newNode);
+    projectView.appendChild(elements.createProjectViewContent(project));
+    // if current projectview === project return
+    // if not delete projectview
+    // populate projectview
+    // const projectView = document.getElementById('project-view');
+    // const newNode = createProjectViewEntry(project);
+    // appendNode(projectView, newNode);
   }
 
-  return { createProjectNode, appendNode, createProjectViewEntry, populateProjectView };
+  function switchMain(desiredView) {
+    const targeted = document.getElementById(desiredView);
+    if (targeted.classList.contains('hide')) {
+      targeted.classList.remove('hide');
+      const main = document.getElementById('main');
+      const views = main.children;
+      for (let i = 0; i < views.length; i++) {
+        if (views[i].id !== desiredView) {
+          views[i].classList.add('hide');
+        }
+      }
+    }
+  }
+  return { createProjectNode, appendNode, createProjectViewEntry, populateProjectView, switchMain };
 })();
 
 export default Dom;

@@ -13,6 +13,7 @@ const UI = (() => {
   let projectsList;
   let main;
   let projectView;
+  let taskView;
 
   function loadHomePage() {
     content.appendChild(elements.createHeader());
@@ -26,6 +27,8 @@ const UI = (() => {
     main = document.getElementById('main');
     main.appendChild(elements.createProjectView());
     projectView = document.getElementById('project-view');
+    main.appendChild(elements.createTaskView());
+    taskView = document.getElementById('task-view');
   }
 
   const projects = [];
@@ -46,11 +49,11 @@ const UI = (() => {
   function loadProjects() {
     projects.forEach((project, arrayIdx) => {
       const newNode = DOM.createProjectNode(project, arrayIdx);
-      events.addProjectListListener(newNode);
+      newNode.addEventListener('click', events.projectListListener);
       DOM.appendNode(projectsList, newNode);
     });
   }
-  
+
   function initialize() {
     loadHomePage();
     loadProjects();

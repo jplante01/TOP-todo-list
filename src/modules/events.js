@@ -1,5 +1,5 @@
 import DOM from './Dom';
-import UI from './UI'
+
 const events = (() => {
   function loadEventListeners() {
     const addProjectsButton = document.querySelector('#add-project-button');
@@ -7,18 +7,17 @@ const events = (() => {
 
     addProjectsButton.addEventListener('click', () => {
       newProjectFormContainer.classList.toggle('hide');
-      console.log(newProjectFormContainer);
     });
   }
 
-  function addProjectListListener(element) {
-    element.addEventListener('click', (e) => {
-      const idx = e.target.dataset.id;
-      DOM.populateProjectView(UI.projects[idx])
-    });
+  function projectListListener(e) {
+    // check if projectView is active (if not make active)
+    DOM.switchMain('project-view');
+    DOM.populateProjectView(e.target);
+    // check if e.target matches current project view (if not populate)
   }
 
-  return { loadEventListeners, addProjectListListener };
+  return { loadEventListeners, projectListListener };
 })();
 
 export default events;

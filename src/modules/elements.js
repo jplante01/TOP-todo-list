@@ -106,8 +106,31 @@ const elements = (() => {
   function createProjectView() {
     const projectView = document.createElement('div');
     projectView.id = 'project-view';
+    projectView.classList = 'hide';
     return projectView;
   }
+
+  function createProjectViewContent(project) {
+    const projectViewContent = document.createElement('div');
+    const name = document.createElement('div');
+    // console.log(project.name);
+    name.textContent = project.name;
+    projectViewContent.appendChild(name);
+    const dueDate = document.createElement('div');
+    dueDate.textContent = 'insert Date';
+    projectViewContent.appendChild(dueDate);
+    const addTask = document.createElement('button');
+    projectViewContent.appendChild(addTask);
+    return projectViewContent;
+  }
+
+  function createTaskView() {
+    const taskView = document.createElement('div');
+    taskView.id = 'task-view';
+    taskView.classList = 'hide';
+    return taskView;
+  }
+
   return {
     createHeader,
     createSidebar,
@@ -115,6 +138,8 @@ const elements = (() => {
     createNewProjectForm,
     createProjectsList,
     createProjectView,
+    createTaskView,
+    createProjectViewContent,
   };
 })();
 
